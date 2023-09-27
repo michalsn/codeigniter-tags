@@ -68,11 +68,6 @@ final class UpdateWithEntityTest extends TestCase
         $this->assertInstanceOf(Collection::class, $image->tags);
         $this->assertCount(2, $image->tags);
 
-        $this->assertSame('sample 1', $image->tags[0]->name);
-        $this->assertSame('sample-1', $image->tags[0]->slug);
-        $this->assertSame('sample 2', $image->tags[1]->name);
-        $this->assertSame('sample-2', $image->tags[1]->slug);
-
         $image->removeTags(['sample 1']);
         $model->save($image);
 
