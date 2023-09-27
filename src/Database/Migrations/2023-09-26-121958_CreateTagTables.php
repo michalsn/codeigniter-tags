@@ -16,7 +16,7 @@ class CreateTagTables extends Migration
             'updated_at' => ['type' => 'datetime', 'null' => false],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->addUniqueKey(['name', 'slug']);
+        $this->forge->addUniqueKey('slug');
         $this->forge->createTable('tags', true);
 
         $this->forge->addField([

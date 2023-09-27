@@ -81,12 +81,9 @@ class TagModel extends Model
      */
     public function findOrCreateId(Tag $tag): int
     {
-        $search = [
-            'name' => $tag->name,
+        $tagId = $this->where([
             'slug' => $tag->slug,
-        ];
-
-        $tagId = $this->where($search)->first()?->id;
+        ])->first()?->id;
 
         if (! $tagId) {
             $tagId = $this->insert($tag);
