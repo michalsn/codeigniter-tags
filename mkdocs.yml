@@ -35,6 +35,7 @@ repo_url: https://github.com/michalsn/codeigniter-tags
 edit_uri: edit/develop/docs/
 
 markdown_extensions:
+  - admonition
   - pymdownx.superfences
   - pymdownx.highlight:
       use_pygments: false
