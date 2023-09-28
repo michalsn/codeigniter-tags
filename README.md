@@ -31,7 +31,7 @@ class ExampleModel extends BaseModel
 }
 ```
 
-And if you use [entities](https://www.codeigniter.com/user_guide/models/entities.html), add `TaggableEntity` to it:
+And if you use [Entity](https://www.codeigniter.com/user_guide/models/entities.html) class, add `TaggableEntity` trait to it:
 
 ```php
 class Example extends Entity
