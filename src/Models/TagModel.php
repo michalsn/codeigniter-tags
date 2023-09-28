@@ -146,11 +146,10 @@ class TagModel extends Model
         foreach ($tagIds as $tag) {
             $taggableToTags[$tag['taggable_id']][] = $tag['tag_id'];
         }
-        $tagIds = array_map('intval', array_column($tagIds, 'tag_id'));
 
+        $tagIds = array_map('intval', array_unique(array_column($tagIds, 'tag_id')));
         $tags   = $this->find($tagIds);
-        $tagIds = array_column($tags, 'id');
-        $tags   = array_combine($tagIds, $tags);
+        $tags   = array_column($tags, null, 'id');
 
         $results = [];
 
