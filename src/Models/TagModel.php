@@ -20,6 +20,8 @@ class TagModel extends Model
 
     /**
      * Create many tags.
+     *
+     * @throws ReflectionException
      */
     public function createTags(Collection $tags, int $id, string $type): void
     {
@@ -30,6 +32,8 @@ class TagModel extends Model
 
     /**
      * Update many tags.
+     *
+     * @throws ReflectionException
      */
     public function updateTags(Collection $tags, int $id, string $type): void
     {

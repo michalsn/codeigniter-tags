@@ -15,6 +15,9 @@ trait HasTags
     protected Collection $tags;
     protected string $tagType;
 
+    /**
+     * Set up model events and initialize tags related stuff.
+     */
     protected function initialize()
     {
         $this->beforeInsert[]  = 'tagsBeforeInsert';
@@ -34,6 +37,9 @@ trait HasTags
         parent::initialize();
     }
 
+    /**
+     * Include tags to the result.
+     */
     public function withTags(): static
     {
         $this->includeTags = true;
@@ -41,15 +47,21 @@ trait HasTags
         return $this;
     }
 
-    public function withOnlyTags(array $tags): static
+    /**
+     * The result must have all tags assigned.
+     */
+    public function withAllTags(array $tags): static
     {
-        $this->scopeTags->push(new TagScope($tags, $this->tagType, ScopeTypes::Only));
+        $this->scopeTags->push(new TagScope($tags, $this->tagType, ScopeTypes::All));
 
         $this->includeTags = true;
 
         return $this;
     }
 
+    /**
+     * The result must have any of these tags assigned.
+     */
     public function withAnyTags(array $tags): static
     {
         $this->scopeTags->push(new TagScope($tags, $this->tagType, ScopeTypes::Any));

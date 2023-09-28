@@ -109,7 +109,7 @@ final class UpdateWithEntityTest extends TestCase
     public function testFindWithOnlyTags()
     {
         $model  = model(ImageModel::class);
-        $images = $model->withOnlyTags(['sample 1', 'sample 2'])->findAll();
+        $images = $model->withAllTags(['sample 1', 'sample 2'])->findAll();
 
         $this->assertCount(2, $images);
 

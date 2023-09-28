@@ -26,12 +26,12 @@ class TagScope
     public function getQuery(BaseBuilder $builder, array $tagIds): BaseBuilder
     {
         return match ($this->scopeType) {
-            ScopeTypes::Only => $this->getOnlyTagsQuery($builder, $tagIds),
-            ScopeTypes::Any  => $this->getAnyTagsQuery($builder, $tagIds),
+            ScopeTypes::All => $this->getAllTagsQuery($builder, $tagIds),
+            ScopeTypes::Any => $this->getAnyTagsQuery($builder, $tagIds),
         };
     }
 
-    protected function getOnlyTagsQuery(BaseBuilder $builder, array $tagIds): BaseBuilder
+    protected function getAllTagsQuery(BaseBuilder $builder, array $tagIds): BaseBuilder
     {
         return $builder
             ->select('taggable_id')

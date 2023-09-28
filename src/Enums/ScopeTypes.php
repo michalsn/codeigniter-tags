@@ -4,6 +4,6 @@ namespace Michalsn\CodeIgniterTags\Enums;
 
 enum ScopeTypes
 {
-    case Only;
+    case All;
     case Any;
 }

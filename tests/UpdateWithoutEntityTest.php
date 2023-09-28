@@ -104,7 +104,7 @@ final class UpdateWithoutEntityTest extends TestCase
     public function testFindWithOnlyTags()
     {
         $model = model(PostModel::class);
-        $posts = $model->withOnlyTags(['sample 1', 'sample 2'])->findAll();
+        $posts = $model->withAllTags(['sample 1', 'sample 2'])->findAll();
 
         $this->assertCount(2, $posts);
 
