@@ -4,8 +4,6 @@ namespace Tests;
 
 use Michalsn\CodeIgniterTags\Entities\Tag;
 use Myth\Collection\Collection;
-use Tests\Support\Entities\Image;
-use Tests\Support\Models\ImageModel;
 use Tests\Support\TestCase;
 
 /**
@@ -18,8 +16,9 @@ final class CommonTest extends TestCase
         $tag  = new Tag(['name' => 'test']);
         $tags = convert_to_tags($tag);
 
-        $this->assertEquals(
-            [$tag], $tags->toArray()
+        $this->assertSame(
+            [$tag],
+            $tags->toArray()
         );
     }
 
@@ -29,8 +28,9 @@ final class CommonTest extends TestCase
         $collection = new Collection([$tag, $tag]);
         $tags       = convert_to_tags($collection);
 
-        $this->assertEquals(
-            [$tag, $tag], $tags->toArray()
+        $this->assertSame(
+            [$tag, $tag],
+            $tags->toArray()
         );
     }
 
@@ -40,7 +40,7 @@ final class CommonTest extends TestCase
         $collection = new Collection([$tag, $tag]);
         $tags       = convert_to_tags('tag1,tag2,');
 
-        $this->assertEquals(
+        $this->assertSame(
             [new Tag(['name' => 'tag1']), new Tag(['name' => 'tag2'])],
             $tags->toArray()
         );
