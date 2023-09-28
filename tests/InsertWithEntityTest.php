@@ -20,6 +20,18 @@ final class InsertWithEntityTest extends TestCase
         $this->seeInDatabase('images', ['name' => 'Test name']);
     }
 
+    public function testSaveWithEmptyTags()
+    {
+        fake(ImageModel::class, [
+            'name' => 'Test name',
+            'tags' => '',
+        ]);
+
+        $this->seeInDatabase('images', ['name' => 'Test name']);
+        $this->dontSeeInDatabase('tags', ['id' => 1, 'name' => '']);
+        $this->dontSeeInDatabase('taggable', ['taggable_id' => 1, 'taggable_type' => 'images']);
+    }
+
     public function testSaveWithOneTagAsString()
     {
         fake(ImageModel::class, [

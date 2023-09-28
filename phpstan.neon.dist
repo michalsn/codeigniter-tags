@@ -12,6 +12,10 @@ parameters:
 	        message: '#Cannot access property \$id on array\|object.#'
 	        paths:
 	            - src/Models/TagModel.php
+	    -
+	        message: '#Cannot access property [\$tags\|\$title]+ on array\|object.#'
+	        paths:
+	            - tests/UpdateWithoutEntityTest.php
 	universalObjectCratesClasses:
 		- CodeIgniter\Entity
 		- CodeIgniter\Entity\Entity

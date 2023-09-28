@@ -64,7 +64,7 @@ trait HasTags
      */
     protected function setTags(array|string|Collection $tags): static
     {
-        $this->tags = convert_to_tags($tags)->unique('name');
+        $this->tags = convert_to_tags($tags)->unique('name')->values();
 
         $this->withTags();
 
@@ -132,10 +132,12 @@ trait HasTags
 
         $builder = $this->builder();
 
+        $builder->groupStart();
+
         $this->scopeTags->map(function ($tagScope) use ($builder) {
             if ($tagIds = $tagScope->getTagsIds()) {
                 $builder
-                    ->groupStart()
+                    ->orGroupStart()
                     ->whereIn(
                         $this->primaryKey,
                         static fn (BaseBuilder $builder) => $tagScope->getQuery($builder, $tagIds)
@@ -143,6 +145,8 @@ trait HasTags
                     ->groupEnd();
             }
         });
+
+        $builder->groupEnd();
 
         $this->scopeTags = new Collection([]);
 

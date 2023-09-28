@@ -3,7 +3,7 @@
 namespace Tests;
 
 use Myth\Collection\Collection;
-use Tests\Support\Database\Seeds\TestDataSeeder;
+use Tests\Support\Database\Seeds\TestImageSeeder;
 use Tests\Support\Entities\Image;
 use Tests\Support\Models\ImageModel;
 use Tests\Support\TestCase;
@@ -13,7 +13,7 @@ use Tests\Support\TestCase;
  */
 final class UpdateWithEntityTest extends TestCase
 {
-    protected $seed = TestDataSeeder::class;
+    protected $seed = TestImageSeeder::class;
 
     public function testFindWithoutTag()
     {
@@ -138,5 +138,19 @@ final class UpdateWithEntityTest extends TestCase
 
         $this->assertInstanceOf(Collection::class, $images[3]->tags);
         $this->assertCount(1, $images[3]->tags);
+    }
+
+    public function testFindAndSaveWithNoTags()
+    {
+        $model = model(ImageModel::class);
+        /** @var Image $image */
+        $image = $model->find(6);
+
+        $this->assertNull($image->tags);
+
+        $image->name = 'sample.jpeg';
+        $model->save($image);
+
+        $this->dontSeeInDatabase('taggable', ['taggable_id' => 6, 'taggable_type' => 'images']);
     }
 }

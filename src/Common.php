@@ -27,6 +27,6 @@ if (! function_exists('convert_to_tags')) {
             }
 
             return new Tag(['name' => $tag]);
-        });
+        })->filter(static fn ($tag) => $tag->name !== '');
     }
 }

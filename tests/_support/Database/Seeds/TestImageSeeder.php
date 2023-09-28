@@ -5,7 +5,7 @@ namespace Tests\Support\Database\Seeds;
 use CodeIgniter\Database\Seeder;
 use Tests\Support\Models\ImageModel;
 
-class TestDataSeeder extends Seeder
+class TestImageSeeder extends Seeder
 {
     public function run(): void
     {
@@ -20,5 +20,7 @@ class TestDataSeeder extends Seeder
         fake(ImageModel::class, ['tags' => 'sample 1']);
 
         fake(ImageModel::class, ['tags' => 'sample 2']);
+
+        fake(ImageModel::class);
     }
 }
