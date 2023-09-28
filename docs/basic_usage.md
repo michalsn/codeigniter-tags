@@ -17,13 +17,13 @@ This is how basic usage look like. It's designed to easily integrate with usual 
 
 !!! warning
 
-    Be sure to validate your tags before saving them. You should validate things like: maximum lenght, allowed characters etc.
-    The maximum length of a single tag is 32 characters.
+    Be sure to **validate** your tags before saving them. You should validate things like: maximum lenght, allowed characters etc.
+    The maximum length of a single tag is **32 characters**.
 
 !!! note
 
     Very nice library that can help you managing tags on a frontend is [tagify](https://github.com/yairEO/tagify).
-    Remember that validating tags on the frontend is not enought - you need backend validation too.
+    Remember that validating tags on the frontend is not enought - you need **backend validation** too.
 
 !!! note
 
@@ -31,33 +31,42 @@ This is how basic usage look like. It's designed to easily integrate with usual 
 
 ### Adding tags
 
+Adding tags with normal request flow is very easy.
+
 ```php
 model(ImageModel::class)->insert([
     'name'   => 'sampleFile.jpeg',
     'width'  => 100,
     'height' => 100,
     // this is our field with tags
-    'tags'   => 'tag1,tag2,tag3', // we can also set it as an array: ['tag1', 'tag2', 'tag3']
+    // we can also set it as an array: ['tag1', 'tag2', 'tag3']
+    'tags'   => 'tag1,tag2,tag3',
 ]);
 ```
 
 ### Modifying tags
 
+Modifying tags with normal request flow is very easy.
+
 ```php
 model(ImageModel::class)->save([
     'id'   => 1,
     // this is our field with tags
-    'tags' => 'tag1,tag2', // we can also set it as an array: ['tag1', 'tag2']
+    // we can also set it as an array: ['tag1', 'tag2']
+    'tags' => 'tag1,tag2',
 ]);
 ```
 
 ### Removing tags
 
+Removing tags with normal request flow is very easy.
+
 ```php
 model(ImageModel::class)->save([
     'id'   => 1,
     // this is our field with tags
-    'tags' => '', // we can also set it as an array: []
+    // we can also set it as an array: []
+    'tags' => '',
 ]);
 ```
 
