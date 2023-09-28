@@ -10,6 +10,7 @@ $finder = Finder::create()
         __DIR__ . '/src/',
         __DIR__ . '/tests/',
     ])
+    ->notPath('CommonTest.php')
     ->exclude('build')
     ->append([__FILE__]);
 

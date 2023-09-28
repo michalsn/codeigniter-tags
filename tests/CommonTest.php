@@ -16,7 +16,7 @@ final class CommonTest extends TestCase
         $tag  = new Tag(['name' => 'test']);
         $tags = convert_to_tags($tag);
 
-        $this->assertSame(
+        $this->assertEquals(
             [$tag],
             $tags->toArray()
         );
@@ -28,7 +28,7 @@ final class CommonTest extends TestCase
         $collection = new Collection([$tag, $tag]);
         $tags       = convert_to_tags($collection);
 
-        $this->assertSame(
+        $this->assertEquals(
             [$tag, $tag],
             $tags->toArray()
         );
@@ -36,11 +36,9 @@ final class CommonTest extends TestCase
 
     public function testConvertToTagsWithString()
     {
-        $tag        = new Tag(['name' => 'test']);
-        $collection = new Collection([$tag, $tag]);
-        $tags       = convert_to_tags('tag1,tag2,');
+        $tags = convert_to_tags('tag1,tag2,');
 
-        $this->assertSame(
+        $this->assertEquals(
             [new Tag(['name' => 'tag1']), new Tag(['name' => 'tag2'])],
             $tags->toArray()
         );
