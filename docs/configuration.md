@@ -5,7 +5,7 @@
 
 ## Model
 
-All we need to do is add `HasTags` trait to our model.
+All we need to do is add `HasTags` trait to our model and initialize tags with `initTags()` method.
 
 !!! note
 
@@ -30,6 +30,14 @@ class ImageModel extends Model
     protected $allowedFields = ['name', 'width', 'height'];
 
     // ...
+
+    protected function initialize()
+    {
+        $this->initTags();
+    }
+
+    // ...
+
 }
 ```
 

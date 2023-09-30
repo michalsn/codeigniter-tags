@@ -20,12 +20,19 @@ Migrate your database:
 
 ## Configuration
 
-Add `HasTags` trait to your model.
+Add `HasTags` trait to your model and initialize tags with `initTags()` method.
 
 ```php
 class ExampleModel extends BaseModel
 {
     use HasTags;
+
+    // ...
+
+    protected function initialize()
+    {
+        $this->initTags();
+    }
 
     // ...
 }

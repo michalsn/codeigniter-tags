@@ -18,7 +18,7 @@ trait HasTags
     /**
      * Set up model events and initialize tags related stuff.
      */
-    protected function initialize()
+    protected function initTags(): void
     {
         $this->beforeInsert[]  = 'tagsBeforeInsert';
         $this->afterInsert[]   = 'tagsAfterInsert';
@@ -33,8 +33,6 @@ trait HasTags
         $this->scopeTags = new Collection([]);
         $this->tags      = new Collection([]);
         $this->tagType   = plural($this->table);
-
-        parent::initialize();
     }
 
     /**

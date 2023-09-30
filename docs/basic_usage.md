@@ -1,13 +1,13 @@
 # Basic usage
 
 - [Working with model](#working-with-model)
-  - [Adding tags](#adding-tags)
-  - [Modifying tags](#modifying-tags)
-  - [Removing tags](#removing-tags)
-  - [Results with tags](#results-with-tags)
-  - [Results with certain tags only](#results-with-certain-tags-only)
-  - [Results with any tags](#results-with-any-tags)
-  - [Displaying tags](#displaying-tags)
+    - [Adding tags](#adding-tags)
+    - [Modifying tags](#modifying-tags)
+    - [Removing tags](#removing-tags)
+    - [Results with tags](#results-with-tags)
+    - [Results with certain tags only](#results-with-certain-tags-only)
+    - [Results with any tags](#results-with-any-tags)
+    - [Displaying tags](#displaying-tags)
 - [Working with Entity](#working-with-entity)
 - [Helper functions](#helper-functions)
 
