@@ -20,6 +20,11 @@ class PostModel extends Model
     ];
     protected $useTimestamps = true;
 
+    protected function initialize()
+    {
+        $this->initTags();
+    }
+
     public function fake(Generator &$faker)
     {
         return [
