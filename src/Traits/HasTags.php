@@ -175,7 +175,7 @@ trait HasTags
         $tagModel = model(TagModel::class);
 
         if ($eventData['singleton']) {
-            if ($this->returnType === 'array') {
+            if ($this->tempReturnType === 'array') {
                 $eventData['data']['tags'] = new Collection($tagModel->getById($eventData['data'][$this->primaryKey], $this->tagType));
             } else {
                 $eventData['data']->tags = new Collection($tagModel->getById($eventData['data']->{$this->primaryKey}, $this->tagType));
@@ -185,7 +185,7 @@ trait HasTags
             $tags = $tagModel->getByIds($keys, $this->tagType);
 
             foreach ($eventData['data'] as &$data) {
-                if ($this->returnType === 'array') {
+                if ($this->tempReturnType === 'array') {
                     $data['tags'] = new Collection($tags[$data[$this->primaryKey]] ?? []);
                 } else {
                     $data->tags = new Collection($tags[$data->{$this->primaryKey}] ?? []);

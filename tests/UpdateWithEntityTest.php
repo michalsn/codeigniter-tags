@@ -36,6 +36,18 @@ final class UpdateWithEntityTest extends TestCase
         $this->assertSame('sample-tag', $image->tags[0]->slug);
     }
 
+    public function testFindWithTagsAsArray()
+    {
+        $model = model(ImageModel::class);
+        /** @var Image $image */
+        $image = $model->asArray()->withTags()->find(1);
+
+        $this->assertInstanceOf(Collection::class, $image['tags']);
+        $this->assertCount(1, $image['tags']);
+        $this->assertSame('sample tag', $image['tags'][0]->name);
+        $this->assertSame('sample-tag', $image['tags'][0]->slug);
+    }
+
     public function testFindWithTagsAndAddTag()
     {
         $model = model(ImageModel::class);
