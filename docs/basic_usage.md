@@ -109,6 +109,27 @@ foreach ($image->tags->items() as $tag) {
 }
 ```
 
+## Working with Entity
+
+Using `TaggableEntity` trait in our entity gives us some nice features if we want to work directly on a `tags` field.
+
+```php
+$model = model(ImageModel::class);
+$image = $model->find(1);
+// set tags
+$image->tags = ['tag1', 'tag2']
+// add a new tag
+$image->addTags(['tag3']);
+// remove tag
+$image->removeTags(['tag2']);
+// save changes with tags: tag1 and tag3
+$model->save($image);
+```
+
+## TagModel
+
+Some useful methods that you can find in the `TagModel` class.
+
 ### Tags searching (for autocomplete)
 
 If you're building an autocomplete functionality when user is typing, then you can use `search` method.
@@ -133,23 +154,6 @@ We can also change the number of results we're returning and the page number:
 $perPage = 5;
 $page    = 0;
 model(TagModel::class)->search('po', null, $perPage, $page);
-```
-
-## Working with Entity
-
-Using `TaggableEntity` trait in our entity gives us some nice features if we want to work directly on a `tags` field.
-
-```php
-$model = model(ImageModel::class);
-$image = $model->find(1);
-// set tags
-$image->tags = ['tag1', 'tag2']
-// add a new tag
-$image->addTags(['tag3']);
-// remove tag
-$image->removeTags(['tag2']);
-// save changes with tags: tag1 and tag3
-$model->save($image);
 ```
 
 ## Helper functions
