@@ -10,7 +10,7 @@ use Tests\Support\TestCase;
  */
 final class TagModelTest extends TestCase
 {
-    private $tagModel;
+    private TagModel $tagModel;
 
     protected function setUp(): void
     {
