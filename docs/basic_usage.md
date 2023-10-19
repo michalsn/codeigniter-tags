@@ -109,6 +109,32 @@ foreach ($image->tags->items() as $tag) {
 }
 ```
 
+### Tags searching (for autocomplete)
+
+If you're building an autocomplete functionality when user is typing, then you can use `search` method.
+
+Let's say we have two tables: `foods` and `countries`. And our tags are: `Carrot`, `Potato`, `Portugal` and `Italy`.
+
+The code below will return tags: `Potato` and `Portugal`.
+
+```php
+model(TagModel::class)->search('po');
+```
+
+But this code will return only tag: `Portugal`.
+
+```php
+model(TagModel::class)->search('po', 'countries');
+```
+
+We can also change the number of results we're returning and the page number:
+
+```php
+$perPage = 5;
+$page    = 0;
+model(TagModel::class)->search('po', null, $perPage, $page);
+```
+
 ## Working with Entity
 
 Using `TaggableEntity` trait in our entity gives us some nice features if we want to work directly on a `tags` field.
