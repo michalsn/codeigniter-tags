@@ -105,6 +105,25 @@ class TagModel extends Model
     }
 
     /**
+     * Search tag.
+     */
+    public function search(string $name, ?string $type = null, int $perPage = 5, int $page = 0): array
+    {
+        return $this->db->table('tags')
+            ->like('name', $name, 'after')
+            ->when(
+                $type !== null,
+                static fn (BaseBuilder $builder) => $builder
+                    ->join('taggable', 'taggable.tag_id = tags.id', 'inner')
+                    ->where('taggable.taggable_type', $type)
+            )
+            ->groupBy('tags.id')
+            ->limit($perPage, $page)
+            ->get()
+            ->getCustomResultObject(Tag::class);
+    }
+
+    /**
      * Get tags for one item.
      */
     public function getById(int $id, string $type): array
