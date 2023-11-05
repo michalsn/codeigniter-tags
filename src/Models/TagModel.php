@@ -105,6 +105,31 @@ class TagModel extends Model
     }
 
     /**
+     * Find tags by taggable_type.
+     */
+    public function findByTypes(array $types): array
+    {
+        if ($types === []) {
+            return [];
+        }
+
+        $tagIds = $this->db->table('taggable')
+            ->distinct()
+            ->select('tag_id')
+            ->whereIn('taggable_type', $types)
+            ->get()
+            ->getResultArray();
+
+        if (empty($tagIds)) {
+            return [];
+        }
+
+        $tagIds = array_map('intval', array_column($tagIds, 'tag_id'));
+
+        return $this->whereIn('id', $tagIds)->findAll();
+    }
+
+    /**
      * Search tag.
      */
     public function search(string $name, ?string $type = null, int $perPage = 5, int $page = 0): array

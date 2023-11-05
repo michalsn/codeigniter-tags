@@ -9,6 +9,9 @@
     - [Results with any tags](#results-with-any-tags)
     - [Displaying tags](#displaying-tags)
 - [Working with Entity](#working-with-entity)
+- [TagModel](#tagmodel)
+  - [Tags searching (for autocomplete)](#tags-searching-for-autocomplete)
+  - [Tags by types](#tags-by-types)
 - [Helper functions](#helper-functions)
 
 ## Working with model
@@ -155,6 +158,15 @@ $perPage = 5;
 $page    = 0;
 model(TagModel::class)->search('po', null, $perPage, $page);
 ```
+### Tags by types
+
+We can grab tags based on model (table) they were used with.
+
+```php
+model(TagModel::class)->findByTypes(['images', 'news']);
+```
+
+This will return all the tags that were used with `images` and `news` models (tables).
 
 ## Helper functions
 
