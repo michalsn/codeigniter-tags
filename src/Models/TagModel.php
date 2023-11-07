@@ -43,7 +43,10 @@ class TagModel extends Model
             ->delete();
 
         $this->createTags($tags, $id, $type);
-        $this->cleanupTags();
+
+        if (config('Tags')->cleanupUnusedTags) {
+            $this->cleanupTags();
+        }
     }
 
     /**
