@@ -1,0 +1,819 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Tags library documentation for CodeIgniter 4 framework">
+      
+      
+      
+      
+        <link rel="prev" href="../configuration/">
+      
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
+    
+    
+      
+        <title>Basic usage - CodeIgniter Tags</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4b4a2bd9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/github-dark-dimmed.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#basic-usage" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://michalsn.github.io/codeigniter-tags" title="CodeIgniter Tags" class="md-header__button md-logo" aria-label="CodeIgniter Tags" data-md-component="logo">
+      
+  <img src="../assets/flame.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CodeIgniter Tags
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Basic usage
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/michalsn/codeigniter-tags" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://michalsn.github.io/codeigniter-tags" title="CodeIgniter Tags" class="md-nav__button md-logo" aria-label="CodeIgniter Tags" data-md-component="logo">
+      
+  <img src="../assets/flame.svg" alt="logo">
+
+    </a>
+    CodeIgniter Tags
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/michalsn/codeigniter-tags" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Basic usage
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Basic usage
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-model" class="md-nav__link">
+    Working with model
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-tags" class="md-nav__link">
+    Adding tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modifying-tags" class="md-nav__link">
+    Modifying tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-tags" class="md-nav__link">
+    Removing tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results-with-tags" class="md-nav__link">
+    Results with tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results-with-all-tags" class="md-nav__link">
+    Results with all tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results-with-any-tags" class="md-nav__link">
+    Results with any tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#displaying-tags" class="md-nav__link">
+    Displaying tags
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-entity" class="md-nav__link">
+    Working with Entity
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tagmodel" class="md-nav__link">
+    TagModel
+  </a>
+  
+    <nav class="md-nav" aria-label="TagModel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tags-searching-for-autocomplete" class="md-nav__link">
+    Tags searching (for autocomplete)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tags-by-types" class="md-nav__link">
+    Tags by types
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helper-functions" class="md-nav__link">
+    Helper functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Helper functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#convert_to_tags" class="md-nav__link">
+    convert_to_tags()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-model" class="md-nav__link">
+    Working with model
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-tags" class="md-nav__link">
+    Adding tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modifying-tags" class="md-nav__link">
+    Modifying tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-tags" class="md-nav__link">
+    Removing tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results-with-tags" class="md-nav__link">
+    Results with tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results-with-all-tags" class="md-nav__link">
+    Results with all tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results-with-any-tags" class="md-nav__link">
+    Results with any tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#displaying-tags" class="md-nav__link">
+    Displaying tags
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-entity" class="md-nav__link">
+    Working with Entity
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tagmodel" class="md-nav__link">
+    TagModel
+  </a>
+  
+    <nav class="md-nav" aria-label="TagModel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tags-searching-for-autocomplete" class="md-nav__link">
+    Tags searching (for autocomplete)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tags-by-types" class="md-nav__link">
+    Tags by types
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helper-functions" class="md-nav__link">
+    Helper functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Helper functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#convert_to_tags" class="md-nav__link">
+    convert_to_tags()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="basic-usage">Basic usage</h1>
+<ul>
+<li><a href="#working-with-model">Working with model</a><ul>
+<li><a href="#adding-tags">Adding tags</a></li>
+<li><a href="#modifying-tags">Modifying tags</a></li>
+<li><a href="#removing-tags">Removing tags</a></li>
+<li><a href="#results-with-tags">Results with tags</a></li>
+<li><a href="#results-with-certain-tags-only">Results with certain tags only</a></li>
+<li><a href="#results-with-any-tags">Results with any tags</a></li>
+<li><a href="#displaying-tags">Displaying tags</a></li>
+</ul>
+</li>
+<li><a href="#working-with-entity">Working with Entity</a></li>
+<li><a href="#tagmodel">TagModel</a></li>
+<li><a href="#tags-searching-for-autocomplete">Tags searching (for autocomplete)</a></li>
+<li><a href="#tags-by-types">Tags by types</a></li>
+<li><a href="#helper-functions">Helper functions</a></li>
+</ul>
+<h2 id="working-with-model">Working with model</h2>
+<p>This is how basic usage look like. It's designed to easily integrate with usual form request workflow.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be sure to <strong>validate</strong> your tags before saving them. You should validate things like: maximum lenght, allowed characters etc.
+The maximum length of a single tag is <strong>32 characters</strong>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Very nice library that can help you managing tags on a frontend is <a href="https://github.com/yairEO/tagify">tagify</a>.
+Remember that validating tags on the frontend is not enought - you need <strong>backend validation</strong> too.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your model/table should not use the <code>tags</code> field name, as it is used exclusively by this library. Please treat the <code>tags</code> field name as <strong>reserved</strong>.</p>
+</div>
+<h3 id="adding-tags">Adding tags</h3>
+<p>Adding tags with normal request flow is very easy.</p>
+<pre class="highlight"><code class="language-php">model(ImageModel::class)-&gt;insert([
+    'name'   =&gt; 'sampleFile.jpeg',
+    'width'  =&gt; 100,
+    'height' =&gt; 100,
+    // this is our field with tags
+    // we can also set it as an array: ['tag1', 'tag2', 'tag3']
+    'tags'   =&gt; 'tag1,tag2,tag3',
+]);</code></pre>
+<h3 id="modifying-tags">Modifying tags</h3>
+<p>Modifying tags with normal request flow is very easy.</p>
+<pre class="highlight"><code class="language-php">model(ImageModel::class)-&gt;save([
+    'id'   =&gt; 1,
+    // this is our field with tags
+    // we can also set it as an array: ['tag1', 'tag2']
+    'tags' =&gt; 'tag1,tag2',
+]);</code></pre>
+<h3 id="removing-tags">Removing tags</h3>
+<p>Removing tags with normal request flow is very easy.</p>
+<pre class="highlight"><code class="language-php">model(ImageModel::class)-&gt;save([
+    'id'   =&gt; 1,
+    // this is our field with tags
+    // we can also set it as an array: []
+    'tags' =&gt; '',
+]);</code></pre>
+<h3 id="results-with-tags">Results with tags</h3>
+<p>You can retrieve the results, which will include tags, using the <code>withTags()</code> method, it works with all other methods from the CodeIgniter Model.</p>
+<pre class="highlight"><code class="language-php">model(ImageModel::class)-&gt;withTags()-&gt;find(1);
+// or
+model(ImageModel::class)-&gt;withTags()-&gt;findAll();</code></pre>
+<h3 id="results-with-all-tags">Results with all tags</h3>
+<p>This will return a result with images that have both tags assigned.</p>
+<pre class="highlight"><code class="language-php">model(ImageModel::class)-&gt;withAllTags(['tag1', 'tag2'])-&gt;findAll();</code></pre>
+<h3 id="results-with-any-tags">Results with any tags</h3>
+<p>This will return a result with images that have any of these tags assigned.</p>
+<pre class="highlight"><code class="language-php">model(ImageModel::class)-&gt;withAnyTags(['tag1', 'tag2'])-&gt;findAll();</code></pre>
+<h3 id="displaying-tags">Displaying tags</h3>
+<p>When we get the tags in a result, they are available as a <a href="https://github.com/lonnieezell/myth-collection">Collection</a> class.
+For this reason, tag iteration is specific:</p>
+<pre class="highlight"><code class="language-php">$image = model(ImageModel::class)-&gt;withTags()-&gt;find(1);
+// tags are available as a Collection
+foreach ($image-&gt;tags-&gt;items() as $tag) {
+    d($tag-&gt;name, $tag-&gt;slug);
+}</code></pre>
+<h2 id="working-with-entity">Working with Entity</h2>
+<p>Using <code>TaggableEntity</code> trait in our entity gives us some nice features if we want to work directly on a <code>tags</code> field.</p>
+<pre class="highlight"><code class="language-php">$model = model(ImageModel::class);
+$image = $model-&gt;find(1);
+// set tags
+$image-&gt;tags = ['tag1', 'tag2']
+// add a new tag
+$image-&gt;addTags(['tag3']);
+// remove tag
+$image-&gt;removeTags(['tag2']);
+// save changes with tags: tag1 and tag3
+$model-&gt;save($image);</code></pre>
+<h2 id="tagmodel">TagModel</h2>
+<p>Some useful methods that you can find in the <code>TagModel</code> class.</p>
+<h3 id="tags-searching-for-autocomplete">Tags searching (for autocomplete)</h3>
+<p>If you're building an autocomplete functionality when user is typing, then you can use <code>search</code> method.</p>
+<p>Let's say we have two tables: <code>foods</code> and <code>countries</code>. And our tags are: <code>Carrot</code>, <code>Potato</code>, <code>Portugal</code> and <code>Italy</code>.</p>
+<p>The code below will return tags: <code>Potato</code> and <code>Portugal</code>.</p>
+<pre class="highlight"><code class="language-php">model(TagModel::class)-&gt;search('po');</code></pre>
+<p>But this code will return only tag: <code>Portugal</code>.</p>
+<pre class="highlight"><code class="language-php">model(TagModel::class)-&gt;search('po', 'countries');</code></pre>
+<p>We can also change the number of results we're returning and the page number:</p>
+<pre class="highlight"><code class="language-php">$perPage = 5;
+$page    = 0;
+model(TagModel::class)-&gt;search('po', null, $perPage, $page);</code></pre>
+<h3 id="tags-by-types">Tags by types</h3>
+<p>We can grab tags based on model (table) they were used with.</p>
+<pre class="highlight"><code class="language-php">model(TagModel::class)-&gt;findByTypes(['images', 'news']);</code></pre>
+<p>This will return all the tags that were used with <code>images</code> and <code>news</code> models (tables).</p>
+<h2 id="helper-functions">Helper functions</h2>
+<p>All helper functions are available without requiring additional helper.</p>
+<h3 id="convert_to_tags">convert_to_tags()</h3>
+<p>This function is useful, especially if you do not use entity classes, and when you want to manipulate tags manually, before writing to the database.</p>
+<p>Here is an example that shows how to add a new tag to the existing ones:</p>
+<pre class="highlight"><code class="language-php">$model = model(ImageModel::class);
+$image = $model-&gt;withTags()-&gt;find(1);
+// instead of writing code like this:
+$image-&gt;tags-&gt;push(new Tag(['name' =&gt; 'second tag']));
+// we can simplify it to this:
+$image-&gt;tags-&gt;push(convert_to_tags('second tag'));</code></pre>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/michalsn/codeigniter-tags" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/highlight.min.js"></script>
+      
+        <script src="../assets/hljs.js"></script>
+      
+    
+  </body>
+</html>
