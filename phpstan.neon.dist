@@ -13,7 +13,7 @@ parameters:
 	        paths:
 	            - src/Models/TagModel.php
 	    -
-	        message: '#Cannot access property [\$tags\|\$title]+ on array\|object.#'
+	        message: '#Cannot access property [\$tags\|\$title]+ on array(.+).#'
 	        paths:
 	            - tests/UpdateWithoutEntityTest.php
 	universalObjectCratesClasses:
