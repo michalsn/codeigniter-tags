@@ -7,7 +7,7 @@ if (! function_exists('convert_to_tags')) {
     /**
      * Returns tags Collection.
      */
-    function convert_to_tags(array|string|Collection|Tag $tags): Collection
+    function convert_to_tags(array|Collection|string|Tag $tags): Collection
     {
         if ($tags instanceof Collection) {
             return $tags;

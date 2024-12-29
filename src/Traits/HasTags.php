@@ -72,7 +72,7 @@ trait HasTags
     /**
      * Set tags from eventData array.
      */
-    protected function setTags(array|string|Collection $tags): static
+    protected function setTags(array|Collection|string $tags): static
     {
         $this->tags = convert_to_tags($tags)->unique('name')->values();
 

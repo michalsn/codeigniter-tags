@@ -15,21 +15,21 @@ trait TaggableEntity
         return $this->getTagsCollection();
     }
 
-    public function setTags(array|string|Collection $tags): static
+    public function setTags(array|Collection|string $tags): static
     {
         $this->attributes['tags'] = convert_to_tags($tags)->unique('name')->values();
 
         return $this;
     }
 
-    public function addTags(array|string|Collection $tags): static
+    public function addTags(array|Collection|string $tags): static
     {
         $this->attributes['tags'] = $this->getTagsCollection()->merge(convert_to_tags($tags))->unique('name');
 
         return $this;
     }
 
-    public function removeTags(array|string|Collection $tags): static
+    public function removeTags(array|Collection|string $tags): static
     {
         $this->attributes['tags'] = $this->getTagsCollection()->diff(convert_to_tags($tags), 'name');
 
