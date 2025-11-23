@@ -14,7 +14,7 @@
     "homepage": "https://github.com/michalsn/codeigniter-tags",
     "require": {
         "php": "^8.1",
-        "myth/collection": "dev-master"
+        "myth/collection": "dev-develop"
     },
     "require-dev": {
         "codeigniter4/devkit": "^1.0",
