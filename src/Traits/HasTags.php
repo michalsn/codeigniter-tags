@@ -150,7 +150,7 @@ trait HasTags
                     ->orGroupStart()
                     ->whereIn(
                         $this->table . '.' . $this->primaryKey,
-                        static fn (BaseBuilder $builder) => $tagScope->getQuery($builder, $tagIds)
+                        static fn (BaseBuilder $builder) => $tagScope->getQuery($builder, $tagIds),
                     )
                     ->groupEnd();
             }
