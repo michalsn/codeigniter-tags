@@ -76,7 +76,7 @@ class TagModel extends Model
             ->table('tags')
             ->whereNotIn(
                 'id',
-                static fn (BaseBuilder $builder) => $builder->distinct()->select('tag_id')->from('taggable')
+                static fn (BaseBuilder $builder) => $builder->distinct()->select('tag_id')->from('taggable'),
             )
             ->delete();
     }
@@ -143,7 +143,7 @@ class TagModel extends Model
                 $type !== null,
                 static fn (BaseBuilder $builder) => $builder
                     ->join('taggable', 'taggable.tag_id = tags.id', 'inner')
-                    ->where('taggable.taggable_type', $type)
+                    ->where('taggable.taggable_type', $type),
             )
             ->groupBy('tags.id')
             ->limit($perPage, $page)
